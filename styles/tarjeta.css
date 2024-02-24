@@ -1,0 +1,53 @@
+.centrar {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: -1;
+  margin-top: 5%;
+}
+
+.card-body {
+  opacity: 0.1;
+}
+
+.card{
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  border-color: black;
+}
+
+/* Estilos para el reproductor de audio */
+audio {
+  width: 320px;
+  height: 50px;
+}
+
+  /* Cambiar el color del reproductor */
+audio::-webkit-media-controls-panel {
+  background-color: white;
+}
+
+audio::-webkit-media-controls-mute-button {
+  border-radius: 20px;
+  background-color: white;
+}
+
+audio::-webkit-media-controls-play-button {
+  border-radius: 20px;
+  background-color: white;
+}
+
+/* Cambiar el color del tiempo de reproducción */
+audio::-webkit-media-controls-time-remaining-display {
+  color: black;
+}
+
+audio::-webkit-media-controls-current-time-display {
+  color: black; /* Cambia el color a rojo, puedes usar cualquier color que desees */
+}
+
+ion-icon {
+  transform: translateY(5px);
+}

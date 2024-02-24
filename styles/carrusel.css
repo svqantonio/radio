@@ -1,0 +1,36 @@
+.position {
+    position: relative; 
+    border: 1px solid black;
+}
+
+.slider {
+    background-image: url(../imgs/1.jpeg);
+    background-size: cover;
+    height: 54vh;
+    width: 100%; 
+    border-radius: 10px;
+    animation: animate 30s infinite;
+}
+
+@keyframes animate {
+    20% {
+        background-image: url(../imgs/5.jpeg);
+        background-size: cover;
+    } 
+    40% {
+        background-image: url(../imgs/4.jpeg);
+        background-size: cover;
+    } 
+    60% {
+        background-image: url(../imgs/3.jpeg);
+        background-size: cover;
+    } 
+    80% {
+        background-image: url(../imgs/2.jpeg);
+        background-size: cover;
+    } 
+    100% {
+        background-image: url(../imgs/1.jpeg);
+        background-size: cover;
+    }
+}

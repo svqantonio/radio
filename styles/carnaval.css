@@ -1,0 +1,46 @@
+.contenido {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.carnavalTabla {
+    overflow-y: hidden;
+    border: 1px solid white;
+}
+
+table {
+    margin-top: 10%;
+    margin-bottom: 50%;
+    background-color: white;
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 1.2em;
+}
+
+th, td {
+    padding: 20px;
+}
+
+thead {
+    background-color: #056bfa;
+    color: white;
+    text-align: center;
+}
+
+.tibody {
+    text-align: left;
+}
+
+tr:hover:not(.tihead) {
+    background-color: #4ca0f5;
+    color: black;
+}
+
+
+h1 {
+    color: white;
+    font-family: 'Courier', sans-serif;
+    text-align: center;
+    margin-top: 2%;
+}

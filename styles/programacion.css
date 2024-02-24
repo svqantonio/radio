@@ -1,0 +1,189 @@
+.centrar {
+    margin-top: 5%;    
+}
+
+.imgn0{
+    width: 300px;
+}
+
+.imgn1 {
+    width: 400px;
+}
+
+.imgn14 {
+    width: 400px;
+}
+
+img.imgn12 {
+    width: 60%;
+}
+
+img.imgn13 {
+    width: 65%;
+}
+
+
+.texto {
+    font-size: 15px;
+    color: white;
+}
+
+.tarjetas {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap; /* Permite que las tarjetas se envuelvan en nuevas líneas */
+    margin: 0 auto; /* Centra las tarjetas */
+    margin-top: 5%;
+    margin-bottom: 10%;
+}
+
+.card-container {
+    width: 500px;
+    /*width: calc(33.33% - 20px); /* Ajusta el ancho de cada tarjeta */
+    margin: 0 10px 20px 10px; /* Margen entre las tarjetas y en la parte inferior */
+    height: 300px;
+    position: relative;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+}
+
+.card-container#_tarjeta14, .card-container#_tarjeta13 {
+    width: 100%;
+}
+
+.card img {
+    max-width: 100%;
+    height: auto;
+}
+
+.card {
+    width: 100%;
+    height: 100%;
+    border-radius: inherit;
+}
+
+.card .front-content {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1);
+}
+
+.card .front-content p {
+    font-size: 32px;
+    font-weight: 700;
+    opacity: 1;
+    background: linear-gradient(-45deg, #33ff0f 0%, #33ff0f 100% );
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1)
+}
+
+.card .content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 10px;
+    background: linear-gradient(-30deg, #01005d 20%, #feff4c 90% );
+    padding: 20px;
+    line-height: 1.5;
+    border-radius: 5px;
+    pointer-events: none;
+    transform: translateY(96%);
+    transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1);
+}
+
+.card .content .heading {
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.card:hover .content {
+    transform: translateY(0);
+}
+
+.card:hover .front-content {
+    transform: translateY(-30%);
+}
+
+.card:hover .front-content p {
+    opacity: 0;
+}
+
+/* Contenido de los botones */
+:focus {
+    outline: 0;
+    border-color: #2260ff;
+    box-shadow: 0 0 0 4px #b5c9fc;
+}
+
+.fb-container {
+    flex: 1;
+    margin-left: 70%;
+}
+
+.mydict {
+    margin-top: 20px; /* Ajusta el margen superior según sea necesario para separarlo del plugin de la radio */
+    position: relative; /* Establece el posicionamiento relativo */
+    width: 100%; /* Ajusta el ancho según sea necesario */
+    max-width: 1200px; /* Ajusta el ancho máximo según sea necesario */
+    margin: 0 auto; /* Centra el contenido */
+}
+
+.mydict .separar {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 150px;
+    justify-content: center;
+}
+
+.mydict input[type="radio"] {
+    clip: rect(0 0 0 0);
+    clip-path: inset(100%);
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+}
+
+.mydict input[type="radio"]:checked + span {
+    box-shadow: 0 0 0 0.0625em #0043ed;
+    background-color: #dee7ff;
+    z-index: 1;
+    color: #0043ed;
+}
+
+label span {
+    font-family: 'Courier', sans-serif;
+    display: block;
+    cursor: pointer;
+    background-color: #fff;
+    padding: 0.375em .75em;
+    position: relative;
+    margin-left: .0625em;
+    box-shadow: 0 0 0 0.0625em #b5bfd9;
+    letter-spacing: .05em;
+    color: #3e4963;
+    text-align: center;
+    transition: background-color .5s ease;
+}
+
+label:first-child span {
+    border-radius: .375em 0 0 .375em;
+}
+
+label:last-child span {
+    border-radius: 0 .375em .375em 0;
+}
