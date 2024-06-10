@@ -16,27 +16,27 @@
                 $sqlQuery = 'SELECT u.id, u.username, u.name, u.password, r.type AS role, u.role AS role_id FROM users u, roles r WHERE u.role = r.id;';
             } else if ($table == 'podcasts') {
                 if ($search == null) {
-                    $stmt = $conn->prepare('SELECT * FROM ' . $table . ' ORDER BY id LIMIT 50 OFFSET :page');
+                    $stmt = $conn->prepare('SELECT * FROM ' . $table . ' ORDER BY fecha DESC LIMIT 50 OFFSET :page');
                     $stmt->bindParam(':page', $page, PDO::PARAM_INT);
-                    $sqlQuery = 'SELECT * FROM ' . $table . ' ORDER BY id LIMIT 50 OFFSET ' . $page;
+                    //$sqlQuery = 'SELECT * FROM ' . $table . ' ORDER BY id LIMIT 50 OFFSET ' . $page;
                 } else {
                     if ($searchParameter == null) {
                         $search = '%' . $search . '%'; // Para usar placeholders en el LIKE
                         $stmt = $conn->prepare('SELECT * FROM ' . $table . ' WHERE titulo LIKE :search OR principal LIKE :search OR persona1 LIKE :search OR persona2 LIKE :search OR tematica LIKE :search ORDER BY id LIMIT 50 OFFSET :page');
                         $stmt->bindParam(':search', $search, PDO::PARAM_STR);
                         $stmt->bindParam(':page', $page, PDO::PARAM_INT);
-                        $sqlQuery = 'SELECT * FROM ' . $table . ' WHERE titulo LIKE \'' . $search . '\' OR principal LIKE \'' . $search . '\' OR persona1 LIKE \'' . $search . '\' OR persona2 LIKE \'' . $search . '\' OR tematica LIKE \'' . $search . '\' ORDER BY id LIMIT 50 OFFSET ' . $page;
+                        //$sqlQuery = 'SELECT * FROM ' . $table . ' WHERE titulo LIKE \'' . $search . '\' OR principal LIKE \'' . $search . '\' OR persona1 LIKE \'' . $search . '\' OR persona2 LIKE \'' . $search . '\' OR tematica LIKE \'' . $search . '\' ORDER BY id LIMIT 50 OFFSET ' . $page;
                     } else {
                         $stmt = $conn->prepare('SELECT * FROM ' . $table . ' WHERE fecha LIKE :search ORDER BY id LIMIT 50 OFFSET :page');
                         $search .= '%';
                         $stmt->bindParam(':search', $search);
                         $stmt->bindParam(':page', $page, PDO::PARAM_INT);
-                        $sqlQuery = 'SELECT * FROM ' . $table . ' WHERE fecha LIKE \'' . $search . '\' ORDER BY id LIMIT 50 OFFSET \'' . $page . '\'';
+                        //$sqlQuery = 'SELECT * FROM ' . $table . ' WHERE fecha LIKE \'' . $search . '\' ORDER BY id LIMIT 50 OFFSET \'' . $page . '\'';
                     }
                 }
             } else {
                 $stmt = $conn->prepare('SELECT * FROM ' . $table);
-                $sqlQuery = 'SELECT * FROM ' . $table;
+                //$sqlQuery = 'SELECT * FROM ' . $table;
             }
         
             $stmt->execute();
@@ -52,7 +52,7 @@
                     return [
                         "status" => "error",
                         "message" => "No se han encontrado resultados",
-                        "query" => $sqlQuery, // Aquí se añade la consulta SQL
+                        //"query" => $sqlQuery, // Aquí se añade la consulta SQL
                         "redirection" => 'table.html?table=' . $table . '&page=0',
                         "timer" => $timer
                     ];

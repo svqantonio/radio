@@ -23,7 +23,7 @@
 
             function programacion(dia) {
                 const xhr = new XMLHttpRequest();
-                const url = `../administration/prog_botonDia.php?dia=${dia}`;
+                const url = `prog_botonDia.php?dia=${dia}`;
                 
                 xhr.onreadystatechange = function() {
                     if (xhr.readyState === XMLHttpRequest.DONE) {

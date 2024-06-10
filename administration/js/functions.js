@@ -66,7 +66,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 function dateConversion(date) {
-    let parts = date.split('-'); // Dividir la fecha en día, mes y año usando guiones
+    console.log("Fecha que recibo: ", date);
+
+    // Determinar el separador utilizado en la fecha
+    let separator = date.includes('-') ? '-' : '/';
+
+    // Dividir la fecha en partes utilizando el separador adecuado
+    let parts = date.split(separator);
 
     // Caso 1: Solo año (1 parte)
     if (parts.length === 1 && parts[0].length === 4) {

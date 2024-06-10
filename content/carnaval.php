@@ -83,7 +83,7 @@
             <div id="main-container">
                 <h1>Carnaval</h1>
                 <header style="margin-top:20px;">
-                    <div id="cuadroBusqueda">
+                    <!--<div id="cuadroBusqueda">
                     <div class="barra">
                             <div class="searchBox">
                             <div class="shadow"></div>
@@ -96,7 +96,7 @@
                             <ion-icon id="iconoBusqueda" name="close-outline"></ion-icon>
                             </div>
                         </div>
-                    </div>
+                    </div>-->
                 </header>
                 <table class="carnavalTabla">
                     <thead>

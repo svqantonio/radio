@@ -489,11 +489,12 @@ function addOrEditValue(tableStructure, type, formEdit, table) {
             console.error('No se encontró ningún elemento con el nombre de columna: ' + column.COLUMN_NAME);
         }
     });
+    console.log("Fecha antes de entrar en la funcion: ", jsonData);
 
-    if (!fileName.includes('table_edit.html')) //No se porque hay un error de que en un formulario si tiene la fecha americana ya directamente implementada (en el de enviar) y en otro no (en el de nuevos valores)
+    if (fileName.includes('table.html')) //Cambio el formato de la fecha a enviar dentro del formulario de nuevos podcats porque en editar podcasts no hace falta, ya está cambiado
         if (table == 'podcasts') //Para asegurarnos de que no pasa en cualquier otra tabla que no nos interese
             jsonData.fecha = dateConversion(jsonData.fecha); //Para pasar la fecha al formato que queremos
-
+    console.log("Datos que mandamos: ", jsonData);        
     Swal.fire({
         title: "¿Estás seguro de que quieres " + type + " estos valores?",
         icon: "question",

@@ -49,7 +49,7 @@
     </head>
     <body>
         <?php
-            if (!isset($_GET['busqueda']) || $_GET['busqueda'] == '') {
+            if (!isset($_GET['search']) || $_GET['search'] == '') {
                 ?>
                 <script>
                     Swal.fire({
@@ -64,22 +64,14 @@
                 </script>
                 <?php
             } else {
-                $busqueda = $_GET['busqueda'];
-
-                // Comprobar si la cadena tiene 4 números
-                if (preg_match('/^\d{4}$/', $busqueda))
-                    $busquedaIsYear = true;
-
-                // Comprobar si la cadena tiene el formato de fecha dd/mm/yyyy
-                if (preg_match('/^\d{2,4}-\d{1,2}-\d{1,2}$/', $busqueda)) {
-                    $busquedaIsFecha = true;
-                }
-
+                $busqueda = isset($_GET['search']) ? $_GET['search'] : null;
+                $searchParameter = isset($_GET['searchParameter']) ? $_GET['searchParameter'] : null;
             }
+                
         ?>
         <div class="centrar">
             <button class="btn-shine" style="margin-left: 15%;" onclick="window.location.href='hemeroteca.php'"><span class="shine"><ion-icon class="volver" name="arrow-back-circle-outline"></ion-icon>Volver a la hemeroteca</span></button>
-            <h1 style="font-family: 'Courier', sans-serif;">Búsqueda: <?php echo ucfirst($_GET['busqueda']) ?></h1>
+            <h1 style="font-family: 'Courier', sans-serif;">Búsqueda: <?php echo ucfirst($_GET['search']) ?></h1>
             <table class="carnavalTabla">
                 <thead>
                     <tr class="tihead">
@@ -107,12 +99,10 @@
                             $sqlSetLocale = "SET lc_time_names = 'es_ES'";
                             if ($conn->query($sqlSetLocale) === TRUE) {
 
-                                if ($busquedaIsYear)
-                                    $sql = "SELECT id, titulo, principal, tematica, day(fecha) as dia, month(fecha) as mes, year(fecha) as anyo FROM podcasts WHERE YEAR(fecha) = '$busqueda';"; 
-                                else if ($busquedaIsFecha)
-                                    $sql = "SELECT id, titulo, principal, tematica, day(fecha) as dia, month(fecha) as mes, year(fecha) as anyo FROM podcasts WHERE fecha = '$busqueda';";
+                                if ($searchParameter == null)
+                                    $sql = "SELECT id, titulo, principal, tematica, day(fecha) as dia, month(fecha) as mes, year(fecha) as anyo FROM podcasts WHERE titulo LIKE '%$busqueda%' OR principal LIKE '%$busqueda%' OR persona1 LIKE '%$busqueda%' OR persona2 LIKE '%$busqueda%' OR tematica LIKE '%$busqueda%';"; 
                                 else 
-                                    $sql = "SELECT id, titulo, principal, tematica, day(fecha) as dia, month(fecha) as mes, year(fecha) as anyo FROM podcasts WHERE titulo like '%$busqueda%' or principal like '%$busqueda%' or persona1 like '%$busqueda%' or persona2 like '%$busqueda%' or tematica like '%$busqueda%';";
+                                    $sql = "SELECT id, titulo, principal, tematica, day(fecha) as dia, month(fecha) as mes, year(fecha) as anyo FROM podcasts WHERE fecha LIKE '$busqueda%';";
 
                                 $result = mysqli_query($conn, $sql);
                                 if($result->num_rows > 0) {
@@ -146,7 +136,7 @@
                                     <?php
                                 } else {
                                     ?>
-                                    <script>
+                                    <!-- <script>
                                         Swal.fire({
                                         position: 'center',
                                         icon: 'success',
@@ -156,7 +146,7 @@
                                         }).then(() => {
                                             window.location.href = 'hemeroteca.php';
                                         });
-                                    </script>
+                                    </script>-->
                                     <?php
                                 }   
                             }
