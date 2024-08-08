@@ -1,8 +1,5 @@
 <?php
-    $servername = "lldn292.servidoresdns.net";  // Nombre del servidor de la base de datos
-    $username = "qaid011";     // Nombre de usuario de la base de datos
-    $password = "AntonioGay01";   // Contraseña de la base de datos
-    $dbname = "qaid011";  // Nombre de la base de datos
+    //TAPADO
 
     $options = array(
         PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8mb4",
